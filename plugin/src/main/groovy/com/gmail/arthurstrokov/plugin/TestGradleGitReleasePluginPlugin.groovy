@@ -37,7 +37,6 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
         project.tasks.register("updateReleaseTag") {
             setGroup("git release tasks")
             def currentBrunch = GitUtil.currentBranch
-            println(currentBrunch)
             if (currentBrunch.contains("master")) {
                 dependsOn("updateMajorReleaseTag")
             } else {
