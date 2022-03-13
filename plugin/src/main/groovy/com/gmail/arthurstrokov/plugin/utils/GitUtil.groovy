@@ -21,7 +21,7 @@ public class GitUtil {
     public static def getCurrentTagVersion() {
         def tags = getGitTagsResult
         if (tags.isEmpty()) {
-            throw new GradleScriptException("There is no tags", null)
+            GitUtil.createTag("v0.0")
         }
         def tagsArray = tags.split("\n")
         def currentTagVersion = tagsArray[tagsArray.size() - 1]
