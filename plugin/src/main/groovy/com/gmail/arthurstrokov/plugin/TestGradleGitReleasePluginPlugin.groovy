@@ -3,6 +3,9 @@
  */
 package com.gmail.arthurstrokov.plugin
 
+import com.gmail.arthurstrokov.plugin.tasks.CreateMajorRelease
+import com.gmail.arthurstrokov.plugin.tasks.CreateMinorRelease
+import com.gmail.arthurstrokov.plugin.tasks.GitStatus
 import com.gmail.arthurstrokov.plugin.utils.GitUtil
 import org.gradle.api.Plugin
 import org.gradle.api.Project

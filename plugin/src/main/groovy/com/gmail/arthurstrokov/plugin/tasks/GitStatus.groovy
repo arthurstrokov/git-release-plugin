@@ -1,4 +1,4 @@
-package com.gmail.arthurstrokov.plugin
+package com.gmail.arthurstrokov.plugin.tasks
 
 import com.gmail.arthurstrokov.plugin.utils.GitUtil
 import org.gradle.api.DefaultTask
