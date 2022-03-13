@@ -18,7 +18,9 @@ plugins {
 
     id 'com.gmail.arthurstrokov.plugin.greeting' version '1.0'
 }
+
 version "1.0"
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
