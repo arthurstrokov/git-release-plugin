@@ -24,6 +24,7 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
         }
         project.tasks.register("checkCurrentTagVersion") {
             setGroup("git release tasks")
+            dependsOn("checkGitStatus")
             GitUtil.currentTagVersion
         }
         project.tasks.register("updateMajorReleaseTag", CreateMajorRelease) {
