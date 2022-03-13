@@ -20,7 +20,6 @@ public class GitUtil {
 
     public static def getCurrentTagVersion() {
         def tags = getGitTagsResult
-        println(tags)
         if (tags.isEmpty()) {
             throw new GradleScriptException("There is no tags", null)
         }
