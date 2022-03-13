@@ -16,6 +16,7 @@ plugins {
     // Plugin for publishing a project to a repository
     id 'maven-publish'
 
+    // Get plugin from mavenLocal()
     id 'com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin' version '1.0'
 }
 
