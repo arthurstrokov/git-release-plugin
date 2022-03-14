@@ -24,14 +24,14 @@ public class GitUtil {
             createTag("v0.0")
         }
 //        def tagsArray = tags.split("\n")
-        def tagsArray = Float.parseFloat(tags.replace("v", "").split("\n") as String)
+        def tagsArray = tags.replace("v", "").split("\n")
         println("tagsArray: $tagsArray")
-        def myNewList = []
-        for (v in tagsArray) {
-            myNewList.add(Float.parseFloat(v.replace("v", "")))
+        def floatTagsArray = []
+        for (element in tagsArray) {
+            floatTagsArray.add(Float.parseFloat(element))
         }
-        myNewList.sort()
-        println("myNewList $myNewList")
+        floatTagsArray.sort()
+        println("myNewList $floatTagsArray")
 
         def currentTagVersion = tagsArray[tagsArray.size() - 1]
         println("current tag version: $currentTagVersion")
