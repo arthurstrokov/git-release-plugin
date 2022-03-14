@@ -24,7 +24,7 @@ public class GitUtil {
             createTag("v0.0")
         }
 //        def tagsArray = tags.split("\n")
-        def tagsArray = tags.replace("v", "").split("\n")
+        def tagsArray = Float.parseFloat(tags.replace("v", "").split("\n") as String)
         println("tagsArray: $tagsArray")
         def myNewList = []
         for (v in tagsArray) {
