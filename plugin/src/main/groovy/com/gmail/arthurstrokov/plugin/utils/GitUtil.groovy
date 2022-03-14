@@ -25,6 +25,8 @@ public class GitUtil {
         }
         def tagsArray = tags.split("\n")
         println("tagsArray $tagsArray")
+        def sortedTagsArray = tagsArray.sort()
+        println("sortedTagsArray $sortedTagsArray")
         def currentTagVersion = tagsArray[tagsArray.size() - 1]
         println("current tag version: $currentTagVersion")
         return currentTagVersion
