@@ -24,9 +24,11 @@ public class GitUtil {
             createTag("v0.0")
         }
         def tagsArray = tags.split("\n")
+        def myNewList = [];
+
         for (v in tagsArray) {
             println(v.replace("v", ""))
-//            def updateMajorTagVersion = Integer.parseInt(tagsArray[0].replaceAll("[^\\d.]", ""))
+            myNewList.add(v.replace("v", ""))
         }
         println("tagsArray $tagsArray")
         def sortedTagsArray = tagsArray.sort()
