@@ -25,9 +25,8 @@ public class GitUtil {
         }
         def tagsArray = tags.split("\n")
         for (v in tagsArray) {
-//            println(v.replace("v", ""))
-            def vv = Integer.parseInt(v.replace("v", ""))
-            println(vv)
+            println(v.replace("v", ""))
+//            def updateMajorTagVersion = Integer.parseInt(tagsArray[0].replaceAll("[^\\d.]", ""))
         }
         println("tagsArray $tagsArray")
         def sortedTagsArray = tagsArray.sort()
