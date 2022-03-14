@@ -30,7 +30,7 @@ public class GitUtil {
             myNewList.add(v.replace("v", ""))
         }
         println("myNewList $myNewList")
-        def sortedTagsArray = myNewList.sort()
+        def sortedTagsArray = myNewList.max()
         println("sortedTagsArray $sortedTagsArray")
         def currentTagVersion = tagsArray[tagsArray.size() - 1]
         println("current tag version: $currentTagVersion")
