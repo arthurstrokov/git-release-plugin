@@ -11,11 +11,15 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 /**
- * A simple 'hello world' plugin.
- */
+ * A simple 'hello world' plugin.*/
 class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
     void apply(Project project) {
         // Register a task
+        project.tasks.register("greeting") {
+            doLast {
+                println("Hello from plugin 'com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin'")
+            }
+        }
         project.tasks.register("checkGitStatus", GitStatus) {
             setGroup("git test release tasks")
         }

@@ -3,9 +3,9 @@
  */
 package com.gmail.arthurstrokov.plugin
 
+import org.gradle.testkit.runner.GradleRunner
 import spock.lang.Specification
 import spock.lang.TempDir
-import org.gradle.testkit.runner.GradleRunner
 
 /**
  * A simple functional test for the 'com.gmail.arthurstrokov.plugin.greeting' plugin.
@@ -27,7 +27,7 @@ class TestGradleGitReleasePluginPluginFunctionalTest extends Specification {
         settingsFile << ""
         buildFile << """
 plugins {
-    id('com.gmail.arthurstrokov.plugin.greeting')
+    id('com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin')
 }
 """
 
@@ -40,6 +40,6 @@ plugins {
         def result = runner.build()
 
         then:
-        result.output.contains("Hello from plugin 'com.gmail.arthurstrokov.plugin.greeting'")
+        result.output.contains("Hello from plugin 'com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin'")
     }
 }
