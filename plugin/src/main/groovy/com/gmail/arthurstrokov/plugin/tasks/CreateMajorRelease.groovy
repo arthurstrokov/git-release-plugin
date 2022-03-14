@@ -8,6 +8,7 @@ class CreateMajorRelease extends DefaultTask {
 
     @TaskAction
     def createMajorRelease() {
+        println("Major ->")
         def getTags = GitUtil.getGitTagsResult
         println("getTags: $getTags")
         def currentTagVersion = GitUtil.currentTagVersion

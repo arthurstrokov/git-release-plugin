@@ -8,9 +8,13 @@ class CreateMinorRelease extends DefaultTask {
 
     @TaskAction
     def createMinorRelease() {
+        println("Minor ->")
         def currentTagVersion = GitUtil.currentTagVersion
+        println("currentTagVersion: $currentTagVersion")
         def tagVersionDetail = currentTagVersion.split('\\.')
+        println("tagVersionDetail: $tagVersionDetail")
         def updateMinorTagVersion = Integer.parseInt(tagVersionDetail[1]) + 1
+        println("updateMinorTagVersion: $updateMinorTagVersion")
         def newTagVersion = String.join(".", tagVersionDetail[0], updateMinorTagVersion as String)
         println("new tag version $newTagVersion")
         GitUtil.createTag(newTagVersion)
