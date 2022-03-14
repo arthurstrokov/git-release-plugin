@@ -26,12 +26,11 @@ public class GitUtil {
         def tagsArray = tags.split("\n")
         def myNewList = []
         for (v in tagsArray) {
-//            println(v.replace("v", ""))
-            myNewList.add(v.replace("v", ""))
+            myNewList.add(Float.parseFloat(v.replace("v", "")))
         }
+        myNewList.sort()
         println("myNewList $myNewList")
-        def sortedTagsArray = myNewList.max()
-        println("sortedTagsArray $sortedTagsArray")
+
         def currentTagVersion = tagsArray[tagsArray.size() - 1]
         println("current tag version: $currentTagVersion")
         return currentTagVersion
