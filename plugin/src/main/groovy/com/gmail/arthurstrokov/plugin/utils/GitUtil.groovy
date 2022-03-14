@@ -24,11 +24,12 @@ public class GitUtil {
             createTag("v0.0")
         }
         def tagsArray = tags.split("\n")
-        def myNewList = [];
+        def myNewList = []
         for (v in tagsArray) {
-            println(v.replace("v", ""));
-            myNewList.add(Integer.parseInt(v.replace("v", "")));
+//            println(v.replace("v", ""))
+            myNewList.add(v.replace("v", ""))
         }
+        println("myNewList $myNewList")
         println("tagsArray $tagsArray")
         def sortedTagsArray = tagsArray.sort()
         println("sortedTagsArray $sortedTagsArray")
