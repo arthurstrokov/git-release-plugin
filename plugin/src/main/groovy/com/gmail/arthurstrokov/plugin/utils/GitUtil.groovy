@@ -4,6 +4,8 @@ import org.gradle.api.GradleScriptException
 
 public class GitUtil {
 
+    public static def MAJOR_BRANCH = ReadFromFile.readFromFile().get(0);
+
     public static def getGitTagsResult = ("git tag -l").execute().text
 
     public static def getGitVersion() {
