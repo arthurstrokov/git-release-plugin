@@ -21,23 +21,23 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
             }
         }
         project.tasks.register("checkGitStatus", GitStatus) {
-            setGroup("git test release tasks")
+            setGroup("task git test")
         }
         project.tasks.register("checkCurrentTagVersion") {
-            setGroup("git test release tasks")
+            setGroup("task git test")
             dependsOn("checkGitStatus")
             GitUtil.currentTagVersion
         }
         project.tasks.register("updateMajorReleaseTag", CreateMajorRelease) {
-            setGroup("git test release tasks")
+            setGroup("task git test")
             dependsOn("checkGitStatus")
         }
         project.tasks.register("updateMinorReleaseTag", CreateMinorRelease) {
-            setGroup("git test release tasks")
+            setGroup("task git test")
             dependsOn("checkGitStatus")
         }
         project.tasks.register("updateReleaseTag") {
-            setGroup("git release tasks")
+            setGroup("task git update release tag")
             def currentBrunch = GitUtil.currentBranch
             if (currentBrunch.contains(GitUtil.MAJOR_BRANCH)) {
                 dependsOn("updateMajorReleaseTag")
