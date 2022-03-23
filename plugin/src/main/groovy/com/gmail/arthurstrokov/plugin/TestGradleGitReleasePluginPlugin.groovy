@@ -10,8 +10,6 @@ import com.gmail.arthurstrokov.plugin.utils.GitUtil
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-/**
- * A simple 'hello world' plugin.*/
 class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
     void apply(Project project) {
         // Register a task
