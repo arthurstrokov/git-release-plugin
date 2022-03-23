@@ -18,8 +18,6 @@ class GitStatus extends DefaultTask {
             throw new GradleScriptException("Link to git does not exists", null)
         } else if (statusResult.contains("new file") || statusResult.contains("modified")) {
             throw new GradleScriptException("Uncommitted changes was found", null)
-        } else if(statusResult.contains("working tree clean")){
-            throw new GradleScriptException("Working tree clean, can't create new tag", null)
         }
     }
 }
