@@ -38,10 +38,16 @@ public class GitUtil {
         return currentTagVersion
     }
 
+    public static def getTags = ("git tag").execute().text
+
     public static def createTag(String version) {
         def result = ("git tag -a $version -m \"Created\"").execute().text
         if (!result.isEmpty()) {
             throw new GradleScriptException("Tag was not created", null)
         }
+    }
+
+    public static def getLastCommitLog() {
+        return ("git log -1").execute().text
     }
 }

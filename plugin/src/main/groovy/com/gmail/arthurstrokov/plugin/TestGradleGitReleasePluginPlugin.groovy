@@ -3,6 +3,7 @@
  */
 package com.gmail.arthurstrokov.plugin
 
+import com.gmail.arthurstrokov.plugin.tasks.CommitLogStatus
 import com.gmail.arthurstrokov.plugin.tasks.CreateMajorRelease
 import com.gmail.arthurstrokov.plugin.tasks.CreateMinorRelease
 import com.gmail.arthurstrokov.plugin.tasks.GitStatus
@@ -26,13 +27,19 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
             dependsOn("checkGitStatus")
             GitUtil.currentTagVersion
         }
+        project.tasks.register("checkCommitLogStatus", CommitLogStatus) {
+            setGroup("task git test")
+            dependsOn("checkGitStatus")
+        }
         project.tasks.register("updateMajorReleaseTag", CreateMajorRelease) {
             setGroup("task git test")
             dependsOn("checkGitStatus")
+            dependsOn("checkCommitLogStatus")
         }
         project.tasks.register("updateMinorReleaseTag", CreateMinorRelease) {
             setGroup("task git test")
             dependsOn("checkGitStatus")
+            dependsOn("checkCommitLogStatus")
         }
         project.tasks.register("updateReleaseTag") {
             setGroup("task git update release tag")
