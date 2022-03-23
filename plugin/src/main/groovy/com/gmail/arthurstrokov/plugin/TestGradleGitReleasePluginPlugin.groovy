@@ -15,7 +15,7 @@ import org.gradle.api.Project
 class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
     void apply(Project project) {
         // Register a task
-        project.tasks.register("greeting") {
+        project.tasks.register("testGradleGitReleasePlugin") {
             doLast {
                 println("Hello from plugin 'com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin'")
             }

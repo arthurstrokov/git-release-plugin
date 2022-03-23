@@ -35,7 +35,7 @@ plugins {
         def runner = GradleRunner.create()
         runner.forwardOutput()
         runner.withPluginClasspath()
-        runner.withArguments("greeting")
+        runner.withArguments("testGradleGitReleasePlugin")
         runner.withProjectDir(projectDir)
         def result = runner.build()
 

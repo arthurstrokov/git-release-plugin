@@ -17,6 +17,6 @@ class TestGradleGitReleasePluginPluginTest extends Specification {
         project.plugins.apply("com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin")
 
         then:
-        project.tasks.findByName("greeting") != null
+        project.tasks.findByName("testGradleGitReleasePlugin") != null
     }
 }
