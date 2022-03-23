@@ -6,7 +6,7 @@ public class GitUtil {
 
     public static def MAJOR_BRANCH = "master"
 
-    public static def getGitTagsResult = ("git tag -l").execute().text
+//    public static def getGitTagsResult = ("git tag -l").execute().text
 
     public static def getGitVersion() {
         return ("git --version").execute().text
@@ -21,7 +21,7 @@ public class GitUtil {
     }
 
     public static def getCurrentTagVersion() {
-        def tags = getGitTagsResult
+        def tags = ("git tag -l").execute().text
         if (tags.isEmpty()) {
             createTag("v0.0")
         }
