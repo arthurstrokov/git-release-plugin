@@ -30,8 +30,10 @@ public class GitUtil {
         for (element in tagsArray) {
             floatTagsArray.add(Float.parseFloat(element))
         }
-        floatTagsArray.sort()
-        def currentTagVersion = "v" + floatTagsArray[floatTagsArray.size() - 1]
+//        floatTagsArray.sort()
+        def floatTagsArraySorted = floatTagsArray.collect { it as Float }.sort { -it }
+        println floatTagsArraySorted
+        def currentTagVersion = "v" + floatTagsArraySorted[floatTagsArraySorted.size() - 1]
         println("current tag version: $currentTagVersion")
         return currentTagVersion
     }
