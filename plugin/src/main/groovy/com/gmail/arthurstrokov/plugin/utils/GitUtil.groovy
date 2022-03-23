@@ -30,18 +30,21 @@ public class GitUtil {
         for (element in tagsArray) {
             floatTagsArray.add(Float.parseFloat(element))
         }
-//        floatTagsArray.sort()
         def floatTagsArraySorted = floatTagsArray.collect { it as Float }.sort { it } // or -it for reverse
-        println floatTagsArraySorted
         def currentTagVersion = "v" + floatTagsArraySorted[floatTagsArraySorted.size() - 1]
-        println("current tag version: $currentTagVersion")
         return currentTagVersion
     }
+
+    public static def getTags = ("git tag").execute().text
 
     public static def createTag(String version) {
         def result = ("git tag -a $version -m \"Created\"").execute().text
         if (!result.isEmpty()) {
             throw new GradleScriptException("Tag was not created", null)
         }
+    }
+
+    public static def getLastCommitLog() {
+        return ("git log -1").execute().text
     }
 }

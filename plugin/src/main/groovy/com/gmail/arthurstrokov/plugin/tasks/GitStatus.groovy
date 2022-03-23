@@ -18,8 +18,6 @@ class GitStatus extends DefaultTask {
             throw new GradleScriptException("Link to git does not exists", null)
         } else if (statusResult.contains("new file") || statusResult.contains("modified")) {
             throw new GradleScriptException("Uncommitted changes was found", null)
-        } else if (statusResult.contains("use \"git push\" to publish your local commits")) {
-            throw new GradleScriptException("(use \"git push\" to publish your local commits)", null)
         }
     }
 }
