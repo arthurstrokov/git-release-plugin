@@ -6,8 +6,6 @@ public class GitUtil {
 
     public static def MAJOR_BRANCH = "master"
 
-//    public static def getGitTagsResult = ("git tag -l").execute().text
-
     public static def getGitVersion() {
         return ("git --version").execute().text
     }
