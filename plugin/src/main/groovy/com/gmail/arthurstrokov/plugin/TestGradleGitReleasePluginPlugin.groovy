@@ -3,10 +3,7 @@
  */
 package com.gmail.arthurstrokov.plugin
 
-import com.gmail.arthurstrokov.plugin.tasks.CommitLogStatus
-import com.gmail.arthurstrokov.plugin.tasks.CreateMajorRelease
-import com.gmail.arthurstrokov.plugin.tasks.CreateMinorRelease
-import com.gmail.arthurstrokov.plugin.tasks.GitStatus
+import com.gmail.arthurstrokov.plugin.tasks.*
 import com.gmail.arthurstrokov.plugin.utils.GitUtil
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -19,7 +16,10 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
                 println("Hello from plugin 'com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin'")
             }
         }
-        project.tasks.register("checkGitStatus", GitStatus) {
+        project.tasks.register("checkGitVersion", GitVersionTask) {
+            setGroup("git tasks")
+        }
+        project.tasks.register("checkGitStatus", GitStatusTask) {
             setGroup("task git test")
         }
         project.tasks.register("checkCurrentTagVersion") {
