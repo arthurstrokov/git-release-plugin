@@ -13,7 +13,7 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
         // Register a task
         project.tasks.register("testGradleGitReleasePlugin") {
             doLast {
-                this.println("Hello from plugin 'com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin'")
+                println "Hello from plugin"
             }
         }
         project.tasks.register("checkGitVersion", GitVersionTask) {

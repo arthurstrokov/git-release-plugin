@@ -1,7 +1,7 @@
 package com.gmail.arthurstrokov.plugin.tasks
 
-import com.gmail.arthurstrokov.plugin.service.GitTagVersionService
 import com.gmail.arthurstrokov.plugin.service.GitCommandService
+import com.gmail.arthurstrokov.plugin.service.GitTagVersionService
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 
@@ -13,7 +13,7 @@ class MinorReleaseTask extends DefaultTask {
         def tagVersionDetail = currentTagVersion.split('\\.')
         def updateMinorTagVersion = Integer.parseInt(tagVersionDetail[1]) + 1
         def newTagVersion = String.join(".", tagVersionDetail[0], updateMinorTagVersion as String)
-        println("new tag version $newTagVersion")
+        println newTagVersion
         GitCommandService.createTag(newTagVersion)
         ("git push origin $newTagVersion").execute()
     }

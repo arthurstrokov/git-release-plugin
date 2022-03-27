@@ -4,9 +4,9 @@
 package com.gmail.arthurstrokov.plugin
 
 import org.gradle.testkit.runner.GradleRunner
+import org.junit.jupiter.api.Test
 import spock.lang.Specification
 import spock.lang.TempDir
-import org.junit.jupiter.api.Test
 
 /**
  * A simple functional test for the 'com.gmail.arthurstrokov.plugin.greeting' plugin.
@@ -41,6 +41,6 @@ plugins {
         def result = runner.build()
 
         then:
-        result.output.contains("Hello from plugin 'com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin'")
+        result.output.contains("Hello from plugin")
     }
 }

@@ -13,7 +13,7 @@ class GitVersionTask extends DefaultTask {
         if (!gitVersion.contains("git")) {
             throw new GradleScriptException("No git available", null)
         } else {
-            println(gitVersion)
+            println gitVersion
         }
     }
 }
