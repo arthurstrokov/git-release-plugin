@@ -14,7 +14,7 @@ class GitTagVersionService {
         }
         def floatTagsArraySorted = floatTagsArray.collect { it as Float }.sort { it } // or -it for reverse
         def currentTagVersion = "v" + floatTagsArraySorted[floatTagsArraySorted.size() - 1]
-        println("current tag version: $currentTagVersion")
+        println currentTagVersion
         return currentTagVersion
     }
 }
