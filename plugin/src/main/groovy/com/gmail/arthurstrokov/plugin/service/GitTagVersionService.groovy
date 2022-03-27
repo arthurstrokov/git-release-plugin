@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory
 
 class GitTagVersionService {
 
-    static Logger logger = LoggerFactory.getLogger(GitTagVersionService)
+    private static final Logger logger = LoggerFactory.getLogger(GitTagVersionService)
 
     static gitTagVersion() {
         def gitTags = GitCommandService.gitTags()
