@@ -18,7 +18,7 @@ class GitCommandService {
 
     static addNewTag(String version) {
         def result = ("git tag -a $version -m \"Created\"").execute().text
-        if (result) {
+        if (!result.empty) {
             throw new GradleScriptException("Tag was not created", null)
         }
     }
