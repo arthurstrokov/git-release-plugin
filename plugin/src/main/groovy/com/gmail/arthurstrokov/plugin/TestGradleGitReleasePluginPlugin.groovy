@@ -20,7 +20,7 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
             setGroup("git tasks")
         }
         project.tasks.register("checkGitStatus", GitStatusTask) {
-            setGroup("task git test")
+            setGroup("git tasks")
         }
         project.tasks.register("checkCurrentTagVersion") {
             setGroup("task git test")
