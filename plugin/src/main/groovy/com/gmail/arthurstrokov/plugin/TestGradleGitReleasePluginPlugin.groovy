@@ -1,6 +1,6 @@
 package com.gmail.arthurstrokov.plugin
 
-import com.gmail.arthurstrokov.plugin.model.Branch
+import com.gmail.arthurstrokov.plugin.model.MajorBranch
 import com.gmail.arthurstrokov.plugin.service.GitCommandService
 import com.gmail.arthurstrokov.plugin.tasks.*
 import org.gradle.api.Plugin
@@ -39,7 +39,7 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
         project.tasks.register("updateReleaseTag") {
             setGroup("git tasks")
             def currentBrunch = GitCommandService.currentBranch()
-            if (currentBrunch.contains(Branch.major())) {
+            if (currentBrunch.contains(MajorBranch.majorBranch())) {
                 dependsOn("updateMajorReleaseTag")
             } else {
                 dependsOn("updateMinorReleaseTag")
@@ -47,7 +47,7 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
         }
         project.tasks.register("getPluginMajorBranch") {
             setGroup("git tasks")
-            println Branch.major()
+            println MajorBranch.majorBranch()
         }
         project.tasks.register("setPluginMajorBranch", PluginBranchTask) {
             setGroup("git tasks")
