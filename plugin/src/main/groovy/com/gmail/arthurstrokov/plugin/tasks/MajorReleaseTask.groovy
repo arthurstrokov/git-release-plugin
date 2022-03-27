@@ -8,7 +8,7 @@ class MajorReleaseTask extends DefaultTask {
 
     @TaskAction
     def createMajorRelease() {
-        def currentTagVersion = HelpfulGitUtil.currentTagVersion
+        def currentTagVersion = GitTagVersionTask.gitTagVersion()
         def tagVersionDetail = currentTagVersion.split('\\.')
         def updateMajorTagVersion = Integer.parseInt(tagVersionDetail[0].replaceAll("[^\\d.]", "")) + 1
         def newTagVersion = String.join(".", updateMajorTagVersion as String, "0")
