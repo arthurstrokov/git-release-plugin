@@ -9,7 +9,7 @@ class GitVersionTask extends DefaultTask {
 
     @TaskAction
     def gitVersion() {
-        def gitVersion = GitCommandService.gitVersion
+        def gitVersion = GitCommandService.gitVersion()
         if (gitVersion.contains("git")) {
             println gitVersion
         } else {

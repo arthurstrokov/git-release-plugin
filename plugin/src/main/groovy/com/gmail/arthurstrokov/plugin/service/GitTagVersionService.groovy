@@ -2,8 +2,8 @@ package com.gmail.arthurstrokov.plugin.service
 
 class GitTagVersionService {
 
-    static def gitTagVersion() {
-        def gitTags = GitCommandService.getGitTags()
+    static gitTagVersion() {
+        def gitTags = GitCommandService.gitTags()
         if (gitTags.empty) {
             GitCommandService.addNewTag("v0.0")
         }
@@ -13,7 +13,7 @@ class GitTagVersionService {
             floatTagsArray.add(Float.parseFloat(element))
         }
         def floatTagsArraySorted = floatTagsArray.collect { it as Float }.sort { it } // or -it for reverse
-        def currentTagVersion = "v" + floatTagsArraySorted[floatTagsArraySorted.size() - 1]
+        def currentTagVersion = "v" + floatTagsArraySorted.last()
         println currentTagVersion
         return currentTagVersion
     }

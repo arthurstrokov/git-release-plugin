@@ -9,7 +9,7 @@ class GitStatusTask extends DefaultTask {
 
     @TaskAction
     def checkGitStatus() {
-        def gitStatusResult = GitCommandService.gitStatusResult
+        def gitStatusResult = GitCommandService.gitStatusResult()
         if (gitStatusResult.empty) {
             throw new GradleScriptException("Link to git does not exists", null)
         } else if (gitStatusResult.contains("new file") || gitStatusResult.contains("modified")) {
