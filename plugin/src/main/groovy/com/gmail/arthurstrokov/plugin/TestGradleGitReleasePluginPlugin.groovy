@@ -27,12 +27,12 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
             setGroup("git tasks")
             dependsOn("checkGitStatus")
         }
-        project.tasks.register("updateMajorReleaseTag", CreateMajorRelease) {
+        project.tasks.register("updateMajorReleaseTag", MajorReleaseTask) {
             setGroup("task git update release tag")
             dependsOn("checkGitStatus")
             dependsOn("checkCommitLogStatus")
         }
-        project.tasks.register("updateMinorReleaseTag", CreateMinorRelease) {
+        project.tasks.register("updateMinorReleaseTag", MinorReleaseTask) {
             setGroup("task git update release tag")
             dependsOn("checkGitStatus")
             dependsOn("checkCommitLogStatus")

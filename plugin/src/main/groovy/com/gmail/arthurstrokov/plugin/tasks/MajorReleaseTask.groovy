@@ -4,7 +4,7 @@ import com.gmail.arthurstrokov.plugin.utils.HelpfulGitUtil
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 
-class CreateMajorRelease extends DefaultTask {
+class MajorReleaseTask extends DefaultTask {
 
     @TaskAction
     def createMajorRelease() {
