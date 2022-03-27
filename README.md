@@ -16,4 +16,4 @@ Delete All local tags.
 
     git tag -d $(git tag -l)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8591306f62ba4b0885efbe3c9f4b1c41)](https://www.codacy.com/gh/arthurstrokov/test-gradle-git-release-plugin/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=arthurstrokov/test-gradle-git-release-plugin&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b757ffad32634c4ebc15f247f08a8f92)](https://www.codacy.com/gh/arthurstrokov/test-gradle-git-release-plugin/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=arthurstrokov/test-gradle-git-release-plugin&amp;utm_campaign=Badge_Grade)
