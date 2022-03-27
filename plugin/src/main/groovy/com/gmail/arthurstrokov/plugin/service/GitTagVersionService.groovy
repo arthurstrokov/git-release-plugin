@@ -3,11 +3,11 @@ package com.gmail.arthurstrokov.plugin.service
 class GitTagVersionService {
 
     static def gitTagVersion() {
-        def tags = GitCommandService.getGitTags()
-        if (tags.isEmpty()) {
+        def gitTags = GitCommandService.getGitTags()
+        if (gitTags.isEmpty()) {
             GitCommandService.createTag("v0.0")
         }
-        def tagsArray = tags.replace("v", "").split("\n")
+        def tagsArray = gitTags.replace("v", "").split("\n")
         def floatTagsArray = []
         for (element in tagsArray) {
             floatTagsArray.add(Float.parseFloat(element))
