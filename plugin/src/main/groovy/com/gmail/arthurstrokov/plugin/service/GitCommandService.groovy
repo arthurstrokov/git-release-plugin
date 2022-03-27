@@ -32,8 +32,8 @@ class GitCommandService {
         return branches
     }
 
-    static setMajorBranch() {
-        println("Set major branch: ")
+    static setPluginMajorBranch() {
+        println("Set plugin major branch: ")
         def branch = System.in.newReader().readLine()
         return branch
     }
