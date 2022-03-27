@@ -4,7 +4,7 @@ import org.gradle.api.GradleScriptException
 
 public class GitUtil {
 
-    public static def MAJOR_BRANCH = "master"
+    public static final def MAJOR_BRANCH = "master"
 
     public static def getGitVersion() {
         return ("git --version").execute().text
@@ -33,7 +33,7 @@ public class GitUtil {
         return currentTagVersion
     }
 
-    public static def getTags = ("git tag").execute().text
+    public static final def getTags = ("git tag").execute().text
 
     public static def createTag(String version) {
         def result = ("git tag -a $version -m \"Created\"").execute().text
