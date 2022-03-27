@@ -14,7 +14,7 @@ class MajorReleaseTask extends DefaultTask {
         def updateMajorTagVersion = Integer.parseInt(tagVersionDetail[0].replaceAll("[^\\d.]", "")) + 1
         def newTagVersion = String.join(".", updateMajorTagVersion as String, "0")
         def newMajorTagVersion = "v" + newTagVersion
-        println newMajorTagVersion
+        logger.info(newMajorTagVersion)
         GitCommandService.addNewTag(newMajorTagVersion)
         ("git push origin $newMajorTagVersion").execute()
     }

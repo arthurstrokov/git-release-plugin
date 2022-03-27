@@ -15,7 +15,7 @@ class GitStatusTask extends DefaultTask {
         } else if (gitStatusResult.contains("new file") || gitStatusResult.contains("modified")) {
             throw new GradleScriptException("Uncommitted changes was found", null)
         } else {
-            print gitStatusResult
+            logger.info(gitStatusResult)
         }
     }
 }
