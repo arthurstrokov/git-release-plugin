@@ -1,10 +1,10 @@
 package com.gmail.arthurstrokov.plugin.model;
 
-public class PluginBranchModel {
+public class Branch {
 
     private static String major = "master";
 
-    private PluginBranchModel() {
+    private Branch() {
     }
 
     public static String major() {
@@ -12,6 +12,6 @@ public class PluginBranchModel {
     }
 
     public static void setMajor(String major) {
-        PluginBranchModel.major = major;
+        Branch.major = major;
     }
 }
