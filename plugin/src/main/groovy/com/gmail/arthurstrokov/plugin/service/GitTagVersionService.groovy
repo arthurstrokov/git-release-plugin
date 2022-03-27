@@ -1,13 +1,11 @@
 package com.gmail.arthurstrokov.plugin.service
 
-import com.gmail.arthurstrokov.plugin.utils.HelpfulGitUtil
-
 class GitTagVersionService {
 
     static def gitTagVersion() {
-        def tags = HelpfulGitUtil.getGitTags()
+        def tags = GitCommandService.getGitTags()
         if (tags.isEmpty()) {
-            HelpfulGitUtil.createTag("v0.0")
+            GitCommandService.createTag("v0.0")
         }
         def tagsArray = tags.replace("v", "").split("\n")
         def floatTagsArray = []

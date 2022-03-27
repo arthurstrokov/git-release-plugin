@@ -1,8 +1,8 @@
-package com.gmail.arthurstrokov.plugin.utils
+package com.gmail.arthurstrokov.plugin.service
 
 import org.gradle.api.GradleScriptException
 
-class HelpfulGitUtil {
+class GitCommandService {
 
     static def getGitVersion() {
         return ("git --version").execute().text
