@@ -3,8 +3,8 @@
  */
 package com.gmail.arthurstrokov.plugin
 
-import com.gmail.arthurstrokov.plugin.tasks.*
 import com.gmail.arthurstrokov.plugin.service.GitCommandService
+import com.gmail.arthurstrokov.plugin.tasks.*
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -13,7 +13,7 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
         // Register a task
         project.tasks.register("testGradleGitReleasePlugin") {
             doLast {
-                println("Hello from plugin 'com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin'")
+                this.println("Hello from plugin 'com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin'")
             }
         }
         project.tasks.register("checkGitVersion", GitVersionTask) {
