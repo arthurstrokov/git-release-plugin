@@ -11,7 +11,7 @@ class MinorReleaseTask extends DefaultTask {
     def minorRelease() {
         def currentTagVersion = GitTagVersionService.gitTagVersion()
         def tagVersionDetail = currentTagVersion.split('\\.')
-        def updateMinorTagVersion = Float.parseFloat(tagVersionDetail[1]) + 1
+        def updateMinorTagVersion = Integer.parseInt(tagVersionDetail[1]) + 1
         def newTagVersion = String.join(".", tagVersionDetail[0], updateMinorTagVersion as String)
         GitCommandService.addNewTag(newTagVersion)
         ("git push origin $newTagVersion").execute()
