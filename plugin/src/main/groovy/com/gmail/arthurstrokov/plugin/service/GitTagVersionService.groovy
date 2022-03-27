@@ -5,7 +5,7 @@ class GitTagVersionService {
     static def gitTagVersion() {
         def gitTags = GitCommandService.getGitTags()
         if (gitTags.isEmpty()) {
-            GitCommandService.createTag("v0.0")
+            GitCommandService.addNewTag("v0.0")
         }
         def tagsArray = gitTags.replace("v", "").split("\n")
         def floatTagsArray = []
