@@ -4,32 +4,32 @@ import org.gradle.api.GradleScriptException
 
 class GitCommandService {
 
-    static def getGitVersion() {
+    static getGitVersion() {
         return ("git --version").execute().text
     }
 
-    static def getGitStatusResult() {
+    static getGitStatusResult() {
         return ("git status").execute().text
     }
 
-    static def getGitTags() {
+    static getGitTags() {
         return ("git tag -l").execute().text
     }
 
-    static def createTag(String version) {
+    static createTag(String version) {
         def result = ("git tag -a $version -m \"Created\"").execute().text
         if (!result.isEmpty()) {
             throw new GradleScriptException("Tag was not created", null)
         }
     }
 
-    static def getCurrentBranch() {
+    static getCurrentBranch() {
         return ("git branch --show-current").execute().text
     }
 
     public static final def MAJOR_BRANCH = "master"
 
-    static def getLastCommitLog() {
+    static getLastCommitLog() {
         return ("git log -1").execute().text
     }
 }
