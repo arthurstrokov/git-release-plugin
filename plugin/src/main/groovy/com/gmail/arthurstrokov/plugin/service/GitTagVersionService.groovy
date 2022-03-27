@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory
 
 class GitTagVersionService {
 
-    private static final Logger logger = LoggerFactory.getLogger(GitTagVersionService)
+    static Logger logger = LoggerFactory.getLogger(GitTagVersionService)
 
     static gitTagVersion() {
         def gitTags = GitCommandService.gitTags()
@@ -19,7 +19,6 @@ class GitTagVersionService {
         }
         def floatTagsArraySorted = floatTagsArray.collect { it as Float }.sort { it } // or -it for reverse
         def currentTagVersion = "v" + floatTagsArraySorted.last()
-        logger.infoEnabled
         logger.info(currentTagVersion)
         return currentTagVersion
     }
