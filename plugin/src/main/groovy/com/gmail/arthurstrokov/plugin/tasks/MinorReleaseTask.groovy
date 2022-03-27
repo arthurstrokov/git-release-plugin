@@ -8,13 +8,13 @@ import org.gradle.api.tasks.TaskAction
 class MinorReleaseTask extends DefaultTask {
 
     @TaskAction
-    def createMinorRelease() {
+    def minorRelease() {
         def currentTagVersion = GitTagVersionService.gitTagVersion()
         def tagVersionDetail = currentTagVersion.split('\\.')
         def updateMinorTagVersion = Integer.parseInt(tagVersionDetail[1]) + 1
         def newTagVersion = String.join(".", tagVersionDetail[0], updateMinorTagVersion as String)
         println newTagVersion
-        GitCommandService.createTag(newTagVersion)
+        GitCommandService.addNewTag(newTagVersion)
         ("git push origin $newTagVersion").execute()
     }
 }
