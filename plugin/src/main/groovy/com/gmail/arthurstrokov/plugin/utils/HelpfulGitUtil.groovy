@@ -4,8 +4,6 @@ import org.gradle.api.GradleScriptException
 
 class HelpfulGitUtil {
 
-    public static final def MAJOR_BRANCH = "master"
-
     static def getGitVersion() {
         return ("git --version").execute().text
     }
@@ -29,7 +27,7 @@ class HelpfulGitUtil {
         return ("git branch --show-current").execute().text
     }
 
-//    public static final def getTags = ("git tag").execute().text
+    public static final def MAJOR_BRANCH = "master"
 
     static def getLastCommitLog() {
         return ("git log -1").execute().text
