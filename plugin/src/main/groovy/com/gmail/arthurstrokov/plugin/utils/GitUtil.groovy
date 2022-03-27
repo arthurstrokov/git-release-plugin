@@ -2,23 +2,23 @@ package com.gmail.arthurstrokov.plugin.utils
 
 import org.gradle.api.GradleScriptException
 
-public class GitUtil {
+class GitUtil {
 
     public static final def MAJOR_BRANCH = "master"
 
-    public static def getGitVersion() {
+    static def getGitVersion() {
         return ("git --version").execute().text
     }
 
-    public static def getGitStatusResult() {
+    static def getGitStatusResult() {
         return ("git status").execute().text
     }
 
-    public static def getCurrentBranch() {
+    static def getCurrentBranch() {
         return ("git branch --show-current").execute().text
     }
 
-    public static def getCurrentTagVersion() {
+    static def getCurrentTagVersion() {
         def tags = ("git tag -l").execute().text
         if (tags.isEmpty()) {
             createTag("v0.0")
@@ -35,14 +35,14 @@ public class GitUtil {
 
     public static final def getTags = ("git tag").execute().text
 
-    public static def createTag(String version) {
+    static def createTag(String version) {
         def result = ("git tag -a $version -m \"Created\"").execute().text
         if (!result.isEmpty()) {
             throw new GradleScriptException("Tag was not created", null)
         }
     }
 
-    public static def getLastCommitLog() {
+    static def getLastCommitLog() {
         return ("git log -1").execute().text
     }
 }
