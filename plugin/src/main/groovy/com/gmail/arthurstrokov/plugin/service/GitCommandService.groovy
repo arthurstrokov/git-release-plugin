@@ -27,7 +27,16 @@ class GitCommandService {
         return ("git branch --show-current").execute().text
     }
 
-    public static final def MAJOR_BRANCH = "master"
+    static gitBranches() {
+        def branches = ("git branch").execute().text
+        return branches
+    }
+
+    static setMajorBranch() {
+        println("Set major branch: ")
+        def branch = System.in.newReader().readLine()
+        return branch
+    }
 
     static lastCommitLog() {
         return ("git log -1").execute().text
