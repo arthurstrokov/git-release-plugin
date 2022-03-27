@@ -1,8 +1,8 @@
-package com.gmail.arthurstrokov.plugin.tasks
+package com.gmail.arthurstrokov.plugin.service
 
 import com.gmail.arthurstrokov.plugin.utils.HelpfulGitUtil
 
-class GitTagVersionTask {
+class GitTagVersionService {
 
     static def gitTagVersion() {
         def tags = HelpfulGitUtil.getGitTags()
