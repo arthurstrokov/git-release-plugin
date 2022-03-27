@@ -55,5 +55,6 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
             setGroup("git tasks")
             println MajorBranch.getMajor()
         }
+
     }
 }
