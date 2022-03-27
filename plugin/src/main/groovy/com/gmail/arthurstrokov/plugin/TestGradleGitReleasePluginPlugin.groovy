@@ -4,7 +4,7 @@
 package com.gmail.arthurstrokov.plugin
 
 import com.gmail.arthurstrokov.plugin.tasks.*
-import com.gmail.arthurstrokov.plugin.utils.GitUtil
+import com.gmail.arthurstrokov.plugin.utils.HelpfulGitUtil
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -43,8 +43,8 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
         }
         project.tasks.register("updateReleaseTag") {
             setGroup("task git update release tag")
-            def currentBrunch = GitUtil.currentBranch
-            if (currentBrunch.contains(GitUtil.MAJOR_BRANCH)) {
+            def currentBrunch = HelpfulGitUtil.currentBranch
+            if (currentBrunch.contains(HelpfulGitUtil.MAJOR_BRANCH)) {
                 dependsOn("updateMajorReleaseTag")
             } else {
                 dependsOn("updateMinorReleaseTag")

@@ -2,7 +2,7 @@ package com.gmail.arthurstrokov.plugin.utils
 
 import org.gradle.api.GradleScriptException
 
-class GitUtil {
+class HelpfulGitUtil {
 
     public static final def MAJOR_BRANCH = "master"
 
