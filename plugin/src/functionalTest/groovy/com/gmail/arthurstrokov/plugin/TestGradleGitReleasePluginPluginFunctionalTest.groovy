@@ -6,6 +6,7 @@ package com.gmail.arthurstrokov.plugin
 import org.gradle.testkit.runner.GradleRunner
 import spock.lang.Specification
 import spock.lang.TempDir
+import org.junit.jupiter.api.Test
 
 /**
  * A simple functional test for the 'com.gmail.arthurstrokov.plugin.greeting' plugin.
@@ -22,7 +23,8 @@ class TestGradleGitReleasePluginPluginFunctionalTest extends Specification {
         new File(projectDir, "settings.gradle")
     }
 
-    def "can run task"() {
+    @Test
+    def canRunTask() {
         given:
         settingsFile << ""
         buildFile << """
@@ -30,7 +32,6 @@ plugins {
     id('com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin')
 }
 """
-
         when:
         def runner = GradleRunner.create()
         runner.forwardOutput()
