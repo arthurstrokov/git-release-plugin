@@ -1,6 +1,6 @@
 package com.gmail.arthurstrokov.plugin.tasks
 
-import com.gmail.arthurstrokov.plugin.utils.GitUtil
+import com.gmail.arthurstrokov.plugin.utils.HelpfulGitUtil
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 
@@ -8,9 +8,9 @@ class GitTagVersionTask extends DefaultTask {
 
     @TaskAction
     def gitTagVersion() {
-        def tags = GitUtil.getGitTags()
+        def tags = HelpfulGitUtil.getGitTags()
         if (tags.isEmpty()) {
-            GitUtil.createTag("v0.0")
+            HelpfulGitUtil.createTag("v0.0")
         }
         def tagsArray = tags.replace("v", "").split("\n")
         def floatTagsArray = []
