@@ -4,15 +4,15 @@ import org.gradle.api.GradleScriptException
 
 class GitCommandService {
 
-    static getGitVersion() {
+    static gitVersion() {
         return ("git --version").execute().text
     }
 
-    static getGitStatusResult() {
+    static gitStatusResult() {
         return ("git status").execute().text
     }
 
-    static getGitTags() {
+    static gitTags() {
         return ("git tag -l").execute().text
     }
 
@@ -23,13 +23,13 @@ class GitCommandService {
         }
     }
 
-    static getCurrentBranch() {
+    static currentBranch() {
         return ("git branch --show-current").execute().text
     }
 
     public static final def MAJOR_BRANCH = "master"
 
-    static getLastCommitLog() {
+    static lastCommitLog() {
         return ("git log -1").execute().text
     }
 }

@@ -39,7 +39,7 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
         }
         project.tasks.register("updateReleaseTag") {
             setGroup("git tasks")
-            def currentBrunch = GitCommandService.currentBranch
+            def currentBrunch = GitCommandService.currentBranch()
             if (currentBrunch.contains(GitCommandService.MAJOR_BRANCH)) {
                 dependsOn("updateMajorReleaseTag")
             } else {
