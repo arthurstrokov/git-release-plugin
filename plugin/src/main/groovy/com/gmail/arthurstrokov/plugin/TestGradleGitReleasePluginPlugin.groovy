@@ -16,28 +16,26 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
             }
         }
         project.tasks.register("checkGitVersion", GitVersionTask) {
-            setGroup("git tasks")
+
         }
         project.tasks.register("checkGitStatus", GitStatusTask) {
-            setGroup("git tasks")
             dependsOn("checkGitVersion")
         }
         project.tasks.register("checkCommitLogStatus", GitCommitLogStatusTask) {
-            setGroup("git tasks")
             dependsOn("checkGitStatus")
         }
         project.tasks.register("updateMajorReleaseTag", MajorReleaseTask) {
-            setGroup("git tasks")
+            setGroup("git tag release plugin tasks")
             dependsOn("checkGitStatus")
             dependsOn("checkCommitLogStatus")
         }
         project.tasks.register("updateMinorReleaseTag", MinorReleaseTask) {
-            setGroup("git tasks")
+            setGroup("git tag release plugin tasks")
             dependsOn("checkGitStatus")
             dependsOn("checkCommitLogStatus")
         }
         project.tasks.register("updateReleaseTag") {
-            setGroup("git tasks")
+            setGroup("git tag release plugin tasks")
             def currentBrunch = GitCommandService.currentBranch()
             if (currentBrunch.contains(MajorBranch.majorBranch())) {
                 dependsOn("updateMajorReleaseTag")
@@ -46,11 +44,11 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
             }
         }
         project.tasks.register("getPluginMajorBranch") {
-            setGroup("git tasks")
+            setGroup("git tag release plugin tasks")
             println MajorBranch.majorBranch()
         }
         project.tasks.register("setPluginMajorBranch", PluginBranchTask) {
-            setGroup("git tasks")
+            setGroup("git tag release plugin tasks")
         }
     }
 }
