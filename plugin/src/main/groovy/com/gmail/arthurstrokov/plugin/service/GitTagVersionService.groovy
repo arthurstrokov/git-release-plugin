@@ -7,8 +7,7 @@ class GitTagVersionService {
     static gitTagVersion() {
         def gitTags = GitCommandService.gitTags()
         if (gitTags.empty) {
-            GitCommandService.addNewTag("v0.0")
-            throw new GradleScriptException("Tag list was empty. Tag 'v0.0' has been created", null)
+            throw new GradleScriptException("Tag list was empty. Create tag with 'v0.0' style", null)
         }
         def tagsArray = gitTags.replace("v", "").split("\n")
         def floatTagsArray = []
