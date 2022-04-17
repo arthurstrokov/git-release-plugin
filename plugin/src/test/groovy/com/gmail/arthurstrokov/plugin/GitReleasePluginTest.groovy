@@ -4,15 +4,15 @@ import org.gradle.testfixtures.ProjectBuilder
 import org.junit.jupiter.api.Test
 import spock.lang.Specification
 
-class TestGradleGitReleasePluginPluginTest extends Specification {
+class GitReleasePluginTest extends Specification {
 
     @Test
     def pluginRegistersTaskTest() {
         given:
         def project = ProjectBuilder.builder().build()
         when:
-        project.plugins.apply("com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin")
+        project.plugins.apply("com.gmail.arthurstrokov.plugin.gitReleasePlugin")
         then:
-        project.tasks.findByName("testGradleGitReleasePlugin") != null
+        project.tasks.findByName("gitReleasePlugin") != null
     }
 }

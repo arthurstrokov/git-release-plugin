@@ -16,11 +16,15 @@ plugins {
     // Plugin for publishing a project to a repository
     id 'maven-publish'
 
+    // Apply the Plugin Publish Plugin to make plugin publication possible
+    id "com.gradle.plugin-publish" version "1.0.0-rc-1"
+
     // Get plugin from mavenLocal()
-    id 'com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin' version '1.0'
+    id 'com.gmail.arthurstrokov.plugin.gitReleasePlugin' version '1.0'
 }
 
 version '1.0'
+group = 'com.gmail.arthurstrokov'
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -38,10 +42,21 @@ gradlePlugin {
     // Define the plugin
     plugins {
         greeting {
-            id = 'com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin'
-            implementationClass = 'com.gmail.arthurstrokov.plugin.TestGradleGitReleasePluginPlugin'
+            id = 'com.gmail.arthurstrokov.plugin.gitReleasePlugin'
+            implementationClass = 'com.gmail.arthurstrokov.plugin.GitReleasePlugin'
+            displayName = 'Git release plugin'
         }
     }
+}
+
+pluginBundle {
+    // These settings are set for the whole plugin bundle
+    website = 'https://github.com/arthurstrokov/git-release-plugin'
+    vcsUrl = 'https://github.com/arthurstrokov/git-release-plugin'
+
+    description = 'Git release plugin!'
+
+    tags = ['example', 'template']
 }
 
 // Add a source set for the functional test suite

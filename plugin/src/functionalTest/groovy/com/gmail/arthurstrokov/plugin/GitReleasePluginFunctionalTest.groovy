@@ -11,7 +11,7 @@ import spock.lang.TempDir
 /**
  * A simple functional test for the 'com.gmail.arthurstrokov.plugin.greeting' plugin.
  */
-class TestGradleGitReleasePluginPluginFunctionalTest extends Specification {
+class GitReleasePluginFunctionalTest extends Specification {
     @TempDir
     private File projectDir
 
@@ -29,14 +29,14 @@ class TestGradleGitReleasePluginPluginFunctionalTest extends Specification {
         settingsFile << ""
         buildFile << """
 plugins {
-    id('com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin')
+    id('com.gmail.arthurstrokov.plugin.gitReleasePlugin')
 }
 """
         when:
         def runner = GradleRunner.create()
         runner.forwardOutput()
         runner.withPluginClasspath()
-        runner.withArguments("testGradleGitReleasePlugin")
+        runner.withArguments("gitReleasePlugin")
         runner.withProjectDir(projectDir)
         def result = runner.build()
 
