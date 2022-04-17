@@ -6,11 +6,11 @@ import com.gmail.arthurstrokov.plugin.tasks.*
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
+class GitReleasePlugin implements Plugin<Project> {
 
     void apply(Project project) {
         // Register a task
-        project.tasks.register("testGradleGitReleasePlugin") {
+        project.tasks.register("gitReleasePlugin") {
             doLast {
                 println("Hello from plugin")
             }
