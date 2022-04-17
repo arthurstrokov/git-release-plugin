@@ -13,3 +13,11 @@ Delete All remote tags.
 Delete All local tags.
 
     git tag -d $(git tag -l)
+
+When developing a plugin, keep in mind that:
+
+    Git may not be installed on the system
+    A plugin can be added to a non-git project
+    Across projects, release branches should be configurable
+    A task for a major version increment can be called from a non-master branch and vice versa
+    The plugin should not create a new git tag if it has already been created based on the last Commit
