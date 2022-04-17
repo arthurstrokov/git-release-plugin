@@ -21,6 +21,9 @@ plugins {
 
     // Get plugin from mavenLocal()
     id 'com.gmail.arthurstrokov.plugin.gitReleasePlugin' version '1.0'
+
+    // A plugin that helps you test your plugin against a variety of Gradle versions
+    id "org.ysb33r.gradletest" version "3.0.0-alpha.2"
 }
 
 version '1.0'
@@ -41,10 +44,11 @@ dependencies {
 gradlePlugin {
     // Define the plugin
     plugins {
-        greeting {
+        gitReleasePlugin {
             id = 'com.gmail.arthurstrokov.plugin.gitReleasePlugin'
-            implementationClass = 'com.gmail.arthurstrokov.plugin.GitReleasePlugin'
             displayName = 'Git release plugin'
+            description = 'Plugin for creating git tag for release control'
+            implementationClass = 'com.gmail.arthurstrokov.plugin.GitReleasePlugin'
         }
     }
 }
