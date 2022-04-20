@@ -15,14 +15,14 @@ plugins {
     id 'maven-publish'
     // Apply the Plugin Publish Plugin to make plugin publication possible
     id "com.gradle.plugin-publish" version "1.0.0-rc-1"
-    // Get plugin from mavenLocal()
-    id 'com.gmail.arthurstrokov.plugin.gitReleasePlugin' version '1.2'
     // A plugin that helps you test your plugin against a variety of Gradle versions
     id "org.ysb33r.gradletest" version "3.0.0-alpha.2"
+    // Get plugin from mavenLocal()
+    id 'io.github.arthurstrokov.gitReleasePlugin' version '1.0'
 }
 
-version '1.2'
-group = 'com.gmail.arthurstrokov'
+version '1.0'
+group = 'io.github.arthurstrokov'
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -40,7 +40,7 @@ gradlePlugin {
     // Define the plugin
     plugins {
         gitReleasePlugin {
-            id = 'com.gmail.arthurstrokov.plugin.gitReleasePlugin'
+            id = 'io.github.arthurstrokov.gitReleasePlugin'
             displayName = 'Git release plugin'
             description = 'Plugin for creating git tag for release control'
             implementationClass = 'com.gmail.arthurstrokov.plugin.GitReleasePlugin'
@@ -53,7 +53,7 @@ pluginBundle {
     website = 'https://github.com/arthurstrokov/git-release-plugin'
     vcsUrl = 'https://github.com/arthurstrokov/git-release-plugin'
 
-    description = 'Git release plugin!'
+    description = 'Git release plugin'
 
     tags = ['individual', 'tags', 'git', 'plugin']
 }
