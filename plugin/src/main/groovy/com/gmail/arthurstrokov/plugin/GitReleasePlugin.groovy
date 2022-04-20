@@ -25,17 +25,17 @@ class GitReleasePlugin implements Plugin<Project> {
             dependsOn("checkGitStatus")
         }
         project.tasks.register("updateMajorReleaseTag", MajorReleaseTask) {
-            setGroup("git tag release plugin tasks")
+            setGroup("git release plugin")
             dependsOn("checkGitStatus")
             dependsOn("checkCommitLogStatus")
         }
         project.tasks.register("updateMinorReleaseTag", MinorReleaseTask) {
-            setGroup("git tag release plugin tasks")
+            setGroup("git release plugin")
             dependsOn("checkGitStatus")
             dependsOn("checkCommitLogStatus")
         }
         project.tasks.register("updateReleaseTag") {
-            setGroup("git tag release plugin tasks")
+            setGroup("git release plugin")
             def currentBrunch = GitCommandService.currentBranch()
             if (currentBrunch.contains(MajorBranch.majorBranch())) {
                 dependsOn("updateMajorReleaseTag")
@@ -44,11 +44,11 @@ class GitReleasePlugin implements Plugin<Project> {
             }
         }
         project.tasks.register("getPluginMajorBranch") {
-            setGroup("git tag release plugin tasks")
+            setGroup("git release plugin")
             println MajorBranch.majorBranch()
         }
         project.tasks.register("setPluginMajorBranch", PluginBranchTask) {
-            setGroup("git tag release plugin tasks")
+            setGroup("git release plugin")
         }
     }
 }
