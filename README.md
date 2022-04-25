@@ -9,6 +9,8 @@ https://plugins.gradle.org/plugin/io.github.arthurstrokov.gitReleasePlugin
 
 Plugin for creating git tag for release control
 
+Create Git Tag: $ git tag <tag_name>
+
 git tag example: v1.0 where '1' is Major and '0' is Minor versions respectively
 
 'updateMajorReleaseTag' task updates Major by incrementing the value by one regardless of which git branch is current
