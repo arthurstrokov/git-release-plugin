@@ -1,6 +1,6 @@
 # git-release-plugin
 
-# Using the plugins DSL:
+## Using the plugins DSL:
     plugins {
     id "io.github.arthurstrokov.gitReleasePlugin" version "1.0"
     }
