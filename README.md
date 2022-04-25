@@ -1,5 +1,12 @@
 # git-release-plugin
 
+### Using the plugins DSL:
+    plugins {
+    id "io.github.arthurstrokov.gitReleasePlugin" version "1.0"
+    }
+
+https://plugins.gradle.org/plugin/io.github.arthurstrokov.gitReleasePlugin
+
 Plugin for creating git tag for release control
 
 git tag example: v1.0 where '1' is Major and '0' is Minor versions respectively
