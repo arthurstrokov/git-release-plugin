@@ -1,6 +1,6 @@
 # git-release-plugin
 
-## Using the plugins DSL:
+## Using the plugins DSL
     plugins {
     id "io.github.arthurstrokov.gitReleasePlugin" version "1.0"
     }
@@ -27,5 +27,7 @@ Default name of main branch is 'master'
 You can set any name for branch which do you consider the main using 'setPluginMajorBranch' task
 
 Also, you can check name for main branch using 'getPluginMajorBranch' task
+
+[![DeepSource](https://deepsource.io/gh/arthurstrokov/git-release-plugin.svg/?label=active+issues&show_trend=true&token=FwpJ6Q9QRkQrVxkBAurlFFKK)](https://deepsource.io/gh/arthurstrokov/git-release-plugin/?ref=repository-badge)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b757ffad32634c4ebc15f247f08a8f92)](https://www.codacy.com/gh/arthurstrokov/test-gradle-git-release-plugin/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=arthurstrokov/test-gradle-git-release-plugin&amp;utm_campaign=Badge_Grade)
