@@ -10,13 +10,8 @@ class GitTagVersionService {
             throw new GradleScriptException("Tag list was empty. Create tag with 'v0.0' style", null)
         }
         def tagsArray = gitTags.replace("v", "").split("\n")
-        def floatTagsArray = []
-        for (element in tagsArray) {
-            floatTagsArray.add(Float.parseFloat(element))
-        }
-        def floatTagsArraySorted = floatTagsArray.collect { it as Float }.sort { it } // or -it for reverse
-        def currentTagVersion = "v" + floatTagsArraySorted.last()
-        println(currentTagVersion)
+        def sortedTagsArray = SortService.sort(tagsArray)
+        def currentTagVersion = "v" + sortedTagsArray.last()
         return currentTagVersion
     }
 }
