@@ -8,7 +8,7 @@ class GitTagVersionService {
     static gitTagVersion() {
         def gitTags = GitCommandService.getGitTags()
         if (gitTags.empty) {
-            throw new GradleScriptException("Tag list is empty. Create tag first. Example: 'git tag v1.0'", null)
+            throw new GradleScriptException("Tag list is empty. Create tag first. Example: 'git tag v0.0'", null)
         }
         def tagsArray = gitTags.replace("v", "").split("\n")
         def sortedTagsArray = sortTags(tagsArray)
