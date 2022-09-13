@@ -6,8 +6,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SortService {
+    private SortService() {
+    }
 
-    public static List<String> sort(String[] strings) {
+    public static List<String> sortTags(String[] strings) {
         Arrays.sort(strings, new VersionNumberComparator());
         return Arrays.asList(strings);
     }

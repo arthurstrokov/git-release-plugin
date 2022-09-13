@@ -7,11 +7,11 @@ public class MajorBranch {
     private MajorBranch() {
     }
 
-    public static String majorBranch() {
+    public static String getMajorBranch() {
         return branch;
     }
 
-    public static void majorBranch(String majorBranch) {
+    public static void setMajorBranch(String majorBranch) {
         MajorBranch.branch = majorBranch;
     }
 }
