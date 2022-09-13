@@ -10,50 +10,61 @@ class GitReleasePlugin implements Plugin<Project> {
 
     void apply(Project project) {
         // Register a task
-        project.tasks.register("gitReleasePlugin") {
+        project.tasks.register("gitReleasePluginHello") {
             doLast {
-                println("Hello from plugin")
+                println("Hello from git release plugin")
             }
         }
-        project.tasks.register("checkGitVersion", GitVersionTask) {
 
+        project.tasks.register("checkGitVersion", CheckGitVersionTask) {
         }
-        project.tasks.register("getLastGitTagVersion", GitTagVersionTask) {
-            setGroup("git release plugin")
-        }
-        project.tasks.register("checkGitStatus", GitStatusTask) {
+
+        project.tasks.register("checkGitStatus", CheckGitStatusTask) {
             dependsOn("checkGitVersion")
         }
-        project.tasks.register("checkCommitLogStatus", GitCommitLogStatusTask) {
+
+        project.tasks.register("checkGitCommitLogStatus", CheckGitCommitLogStatusTask) {
             dependsOn("checkGitStatus")
         }
+
+        project.tasks.register("checkLastAnnotatedGitTag", CheckLastAnnotatedGitTagTask) {
+            setGroup("git release plugin")
+            dependsOn("checkGitStatus")
+        }
+
+        project.tasks.register("getPluginMajorBranch") {
+            setGroup("git release plugin")
+            dependsOn("checkGitStatus")
+            println "Major plugin branch: " + MajorBranch.majorBranch()
+            setDescription("Show major branch name. Default 'master'")
+        }
+
+        project.tasks.register("setPluginMajorBranch", PluginBranchTask) {
+            setGroup("git release plugin")
+            dependsOn("checkGitStatus")
+            setDescription("Set name for major branch")
+        }
+
         project.tasks.register("updateMajorReleaseTag", MajorReleaseTask) {
             setGroup("git release plugin")
-            dependsOn("checkGitStatus")
-            dependsOn("checkCommitLogStatus")
+            dependsOn("checkGitCommitLogStatus")
+            dependsOn("checkLastAnnotatedGitTag")
         }
+
         project.tasks.register("updateMinorReleaseTag", MinorReleaseTask) {
             setGroup("git release plugin")
-            dependsOn("checkGitStatus")
-            dependsOn("checkCommitLogStatus")
+            dependsOn("checkGitCommitLogStatus")
+            dependsOn("checkLastAnnotatedGitTag")
         }
+
         project.tasks.register("updateReleaseTag") {
             setGroup("git release plugin")
-            def currentBrunch = GitCommandService.currentBranch()
+            def currentBrunch = GitCommandService.checkCurrentBranch()
             if (currentBrunch.contains(MajorBranch.majorBranch())) {
                 dependsOn("updateMajorReleaseTag")
             } else {
                 dependsOn("updateMinorReleaseTag")
             }
-        }
-        project.tasks.register("getPluginMajorBranch") {
-            setGroup("git release plugin")
-            setDescription("Show major branch name. Default 'master'")
-            println MajorBranch.majorBranch()
-        }
-        project.tasks.register("setPluginMajorBranch", PluginBranchTask) {
-            setGroup("git release plugin")
-            setDescription("Set name for major branch")
         }
     }
 }
