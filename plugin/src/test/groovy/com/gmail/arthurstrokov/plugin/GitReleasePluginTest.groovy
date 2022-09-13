@@ -13,6 +13,6 @@ class GitReleasePluginTest extends Specification {
         when:
         project.plugins.apply("io.github.arthurstrokov.gitReleasePlugin")
         then:
-        project.tasks.findByName("gitReleasePlugin") != null
+        project.tasks.findByName("gitReleasePluginHello") != null
     }
 }
