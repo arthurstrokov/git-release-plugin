@@ -11,7 +11,7 @@ class GitTagVersionService {
             throw new GradleScriptException("Tag list is empty. Create tag first. Example: 'git tag v0.0'", null)
         }
         def tagsArray = gitTags.replace("v", "").split("\n")
-        def sortedTagsArray = sortTags(tagsArray)
+        def sortedTagsArray = SortService.sortTags(tagsArray)
         def currentTagVersion = "v" + sortedTagsArray.last()
         return currentTagVersion
     }
