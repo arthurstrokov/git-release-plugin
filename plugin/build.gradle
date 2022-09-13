@@ -55,7 +55,7 @@ pluginBundle {
 
     description = 'Git release plugin'
 
-    tags = ['individual', 'tags', 'git', 'plugin']
+    tags = ['individual', 'tags', 'git', 'github', 'git tag']
 }
 
 // Add a source set for the functional test suite
