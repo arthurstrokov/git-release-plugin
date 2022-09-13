@@ -28,12 +28,6 @@ class GitReleasePlugin implements Plugin<Project> {
             dependsOn("checkGitStatus")
         }
 
-        project.tasks.register("checkCurrentBranch", CheckCurrentBranchTask) {
-            setGroup("git release plugin")
-            dependsOn("checkGitStatus")
-            setDescription("Show current branch name.")
-        }
-
         project.tasks.register("getPluginMajorBranch") {
             setGroup("git release plugin")
             dependsOn("checkGitStatus")
