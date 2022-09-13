@@ -41,6 +41,6 @@ plugins {
         def result = runner.build()
 
         then:
-        result.output.contains("Hello from plugin")
+        result.output.contains("Hello from git release plugin")
     }
 }
