@@ -85,8 +85,9 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-task runScript(type: JavaExec) {
-    main 'GitReleasePlugin'
-    systemProperty( 'major-branch', 'master' )
-    classpath = sourceSets.main.runtimeClasspath
+task printProps {
+    doFirst {
+        println applicationName
+        println projectName
+    }
 }

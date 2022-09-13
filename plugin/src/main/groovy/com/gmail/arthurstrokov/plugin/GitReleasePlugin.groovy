@@ -64,9 +64,7 @@ class GitReleasePlugin implements Plugin<Project> {
             setGroup("git release plugin")
             dependsOn("checkGitCommitLogStatus")
 
-            println 'major-branch is ' + System.getProperty( 'major-branch' )
-            // all properties
-            println System.properties
+            println 'major-branch is ' + System.getProperty( 'applicationName' )
         }
     }
 }
