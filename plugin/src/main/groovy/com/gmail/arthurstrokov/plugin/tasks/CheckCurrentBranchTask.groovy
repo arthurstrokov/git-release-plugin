@@ -14,6 +14,6 @@ class CheckCurrentBranchTask extends DefaultTask {
     @TaskAction
     def checkCurrentBranch() {
         def currentBranch = GitCommandService.checkCurrentBranch()
-        println currentBranch
+        println "current branch: " + currentBranch
     }
 }
