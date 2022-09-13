@@ -1,7 +1,6 @@
 package com.gmail.arthurstrokov.plugin.model;
 
 public class MajorBranch {
-
     private static String branch = "master";
 
     private MajorBranch() {

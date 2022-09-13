@@ -6,10 +6,10 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.GradleScriptException
 import org.gradle.api.tasks.TaskAction
 
-class GitCommitLogStatusTask extends DefaultTask {
+class CheckGitCommitLogStatusTask extends DefaultTask {
 
     @TaskAction
-    def checkLastCommitLog() {
+    def checkGitCommitLogStatus() {
         def lastCommittedLogHash = GitCommandService.lastCommitLog().split("\n")[0].split(" ")[1]
         def lastTagVersion = GitTagVersionService.gitTagVersion()
         def lastTagCommittedLog = ("git show ".concat(lastTagVersion)).execute().text.split("\n")
