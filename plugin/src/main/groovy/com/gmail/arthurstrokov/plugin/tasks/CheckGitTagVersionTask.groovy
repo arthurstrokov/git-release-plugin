@@ -4,7 +4,7 @@ import com.gmail.arthurstrokov.plugin.service.GitCommandService
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 
-class GitTagVersionTask extends DefaultTask {
+class CheckGitTagVersionTask extends DefaultTask {
 
     @TaskAction
     def tagVersion() {

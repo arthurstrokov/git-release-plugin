@@ -5,11 +5,11 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.GradleScriptException
 import org.gradle.api.tasks.TaskAction
 
-class GitVersionTask extends DefaultTask {
+class CheckGitVersionTask extends DefaultTask {
 
     @TaskAction
-    def gitVersion() {
-        def gitVersion = GitCommandService.gitVersion()
+    def checkGitVersion() {
+        def gitVersion = GitCommandService.checkGitVersion()
         if (gitVersion.contains("git")) {
             println gitVersion
         } else {
