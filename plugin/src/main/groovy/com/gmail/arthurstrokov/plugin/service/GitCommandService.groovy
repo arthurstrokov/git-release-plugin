@@ -48,12 +48,14 @@ class GitCommandService {
 
 
     def getProperties() {
-        def properties = new Properties()
-        //both leading / and no / is fine
-        this.getClass().getResource('/gradle.properties').withInputStream {
+        Properties properties = new Properties()
+        File propertiesFile = new File('gradle.properties')
+        propertiesFile.withInputStream {
             properties.load(it)
         }
-        //then: "access the properties"
-        println properties."branch.major"
+
+        def runtimeString = 'a'
+        assert properties."$runtimeString" == '1'
+        assert properties.b == '2'
     }
 }
