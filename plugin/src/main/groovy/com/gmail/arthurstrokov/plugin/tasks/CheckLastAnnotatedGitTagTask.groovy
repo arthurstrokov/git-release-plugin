@@ -9,11 +9,11 @@ import org.gradle.api.tasks.TaskAction
  * @email arthurstrokov@gmail.com
  * @created 13.09.2022
  */
-class GitTagVersionTask extends DefaultTask {
+class CheckLastAnnotatedGitTagTask extends DefaultTask {
 
     @TaskAction
-    def tagVersion() {
-        def lastTag = GitCommandService.lastAnnotatedGitTag()
-        println(lastTag)
+    def checkLastAnnotatedGitTag() {
+        def lastAnnotatedGitTag = GitCommandService.lastAnnotatedGitTag()
+        println(lastAnnotatedGitTag)
     }
 }
