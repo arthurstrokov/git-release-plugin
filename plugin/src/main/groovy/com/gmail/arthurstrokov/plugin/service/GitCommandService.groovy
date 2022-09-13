@@ -45,4 +45,15 @@ class GitCommandService {
     static lastAnnotatedGitTag() {
         return ("git describe --abbrev=0").execute().text
     }
+
+
+    def getProperties() {
+        def properties = new Properties()
+        //both leading / and no / is fine
+        this.getClass().getResource('/gradle.properties').withInputStream {
+            properties.load(it)
+        }
+        //then: "access the properties"
+        println properties."branch.major"
+    }
 }
