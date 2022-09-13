@@ -84,3 +84,9 @@ tasks.named('test') {
     // Use JUnit Jupiter for unit tests.
     useJUnitPlatform()
 }
+
+task runScript(type: JavaExec) {
+    main 'GitReleasePlugin'
+    systemProperty( 'major-branch', 'master' )
+    classpath = sourceSets.main.runtimeClasspath
+}

@@ -63,8 +63,10 @@ class GitReleasePlugin implements Plugin<Project> {
         project.tasks.register("getProperties") {
             setGroup("git release plugin")
             dependsOn("checkGitCommitLogStatus")
-            def aaa = GitCommandService.getProperties()
-            println aaa
+
+            println 'major-branch is ' + System.getProperty( 'major-branch' )
+            // all properties
+            println System.properties
         }
     }
 }
