@@ -4,11 +4,11 @@ import com.gmail.arthurstrokov.plugin.service.GitCommandService
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 
-class CheckGitTagVersionTask extends DefaultTask {
+class CheckLastGitTagVersionTask extends DefaultTask {
 
     @TaskAction
-    def tagVersion() {
-        def lastTag = GitCommandService.lastTag()
-        println(lastTag)
+    def checkLastGitTagVersion() {
+        def lastGitTagVersion = GitCommandService.lastGitTag()
+        println(lastGitTagVersion)
     }
 }

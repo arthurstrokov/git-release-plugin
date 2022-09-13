@@ -42,7 +42,7 @@ class GitCommandService {
         return ("git log -1").execute().text
     }
 
-    static lastTag() {
+    static lastGitTag() {
         return ("git describe --abbrev=0").execute().text
     }
 }
