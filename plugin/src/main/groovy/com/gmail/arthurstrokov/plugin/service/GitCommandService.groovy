@@ -43,7 +43,6 @@ class GitCommandService {
     }
 
     static lastAnnotatedGitTag() {
-        def lastAnnotatedGitTag = ("git describe --abbrev=0").execute().text
-        return lastAnnotatedGitTag
+        return ("git describe --abbrev=0").execute().text
     }
 }

@@ -25,11 +25,6 @@ class GitReleasePlugin implements Plugin<Project> {
             dependsOn("checkGitVersion")
         }
 
-        project.tasks.register("checkLastAnnotatedGitTagVersion", CheckLastAnnotatedGitTagVersionTask) {
-            setGroup("git release plugin")
-            dependsOn("checkGitVersion")
-        }
-
         project.tasks.register("checkGitCommitLogStatus", CheckGitCommitLogStatusTask) {
             setGroup("git release plugin")
             dependsOn("checkGitStatus")
