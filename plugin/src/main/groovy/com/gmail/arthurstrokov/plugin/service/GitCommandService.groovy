@@ -4,26 +4,26 @@ import org.gradle.api.GradleScriptException
 
 class GitCommandService {
 
-    static gitVersion() {
+    static checkGitVersion() {
         return ("git --version").execute().text
     }
 
-    static gitStatusResult() {
+    static checkGitStatus() {
         return ("git status").execute().text
     }
 
-    static gitTags() {
+    static getGitTags() {
         return ("git tag -l").execute().text
     }
 
-    static addNewTag(String version) {
+    static createGitTag(String version) {
         def result = ("git tag -a $version -m \"Created\"").execute().text
         if (!result.empty) {
             throw new GradleScriptException("Tag was not created", null)
         }
     }
 
-    static currentBranch() {
+    static checkCurrentBranch() {
         return ("git branch --show-current").execute().text
     }
 
@@ -42,7 +42,7 @@ class GitCommandService {
         return ("git log -1").execute().text
     }
 
-    static lastTag() {
+    static lastAnnotatedGitTag() {
         return ("git describe --abbrev=0").execute().text
     }
 }
