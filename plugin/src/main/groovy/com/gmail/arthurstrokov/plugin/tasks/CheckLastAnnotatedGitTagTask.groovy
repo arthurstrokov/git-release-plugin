@@ -14,6 +14,6 @@ class CheckLastAnnotatedGitTagTask extends DefaultTask {
     @TaskAction
     def checkLastAnnotatedGitTag() {
         def lastAnnotatedGitTag = GitCommandService.lastAnnotatedGitTag()
-        println(lastAnnotatedGitTag)
+        println "Last annotated git tag: " + lastAnnotatedGitTag
     }
 }

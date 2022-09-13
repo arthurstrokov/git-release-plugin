@@ -48,11 +48,13 @@ class GitReleasePlugin implements Plugin<Project> {
         project.tasks.register("updateMajorReleaseTag", MajorReleaseTask) {
             setGroup("git release plugin")
             dependsOn("checkGitCommitLogStatus")
+            dependsOn("checkLastAnnotatedGitTag")
         }
 
         project.tasks.register("updateMinorReleaseTag", MinorReleaseTask) {
             setGroup("git release plugin")
             dependsOn("checkGitCommitLogStatus")
+            dependsOn("checkLastAnnotatedGitTag")
         }
 
         project.tasks.register("updateReleaseTag") {
