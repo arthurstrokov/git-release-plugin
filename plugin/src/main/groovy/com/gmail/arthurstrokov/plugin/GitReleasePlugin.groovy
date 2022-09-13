@@ -60,7 +60,7 @@ class GitReleasePlugin implements Plugin<Project> {
         project.tasks.register("getPluginMajorBranch") {
             setGroup("git release plugin")
             setDescription("Show major branch name. Default 'master'")
-            println MajorBranch.majorBranch()
+            println "Major plugin branch: " + MajorBranch.majorBranch()
         }
 
         project.tasks.register("setPluginMajorBranch", PluginBranchTask) {
