@@ -17,5 +17,6 @@ class CheckGitCommitLogStatusTask extends DefaultTask {
         if (lastTagCommittedLogHash == lastCommittedLogHash) {
             throw new GradleScriptException("Tag was created in the last commit", null)
         }
+
     }
 }
