@@ -3,6 +3,9 @@
  */
 package com.gmail.arthurstrokov.plugin
 
+import com.gmail.arthurstrokov.plugin.tasks.CreateMajorRelease
+import com.gmail.arthurstrokov.plugin.tasks.CreateMinorRelease
+import com.gmail.arthurstrokov.plugin.tasks.GitStatus
 import com.gmail.arthurstrokov.plugin.utils.GitUtil
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -13,25 +16,20 @@ import org.gradle.api.Project
 class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
     void apply(Project project) {
         // Register a task
-        project.tasks.register("greeting") {
-            setGroup("git release tasks")
-            doLast {
-                println("Hello from plugin 'com.gmail.arthurstrokov.plugin.greeting'")
-            }
-        }
         project.tasks.register("checkGitStatus", GitStatus) {
-            setGroup("git release tasks")
+            setGroup("git test release tasks")
         }
         project.tasks.register("checkCurrentTagVersion") {
-            setGroup("git release tasks")
+            setGroup("git test release tasks")
+            dependsOn("checkGitStatus")
             GitUtil.currentTagVersion
         }
         project.tasks.register("updateMajorReleaseTag", CreateMajorRelease) {
-            setGroup("git release tasks")
+            setGroup("git test release tasks")
             dependsOn("checkGitStatus")
         }
         project.tasks.register("updateMinorReleaseTag", CreateMinorRelease) {
-            setGroup("git release tasks")
+            setGroup("git test release tasks")
             dependsOn("checkGitStatus")
         }
         project.tasks.register("updateReleaseTag") {

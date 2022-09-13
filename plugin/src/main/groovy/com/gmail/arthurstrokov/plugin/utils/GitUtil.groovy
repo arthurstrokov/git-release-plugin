@@ -21,10 +21,15 @@ public class GitUtil {
     public static def getCurrentTagVersion() {
         def tags = getGitTagsResult
         if (tags.isEmpty()) {
-            throw new GradleScriptException("There is no tags", null)
+            createTag("v0.0")
         }
-        def tagsArray = tags.split("\n")
-        def currentTagVersion = tagsArray[tagsArray.size() - 1]
+        def tagsArray = tags.replace("v", "").split("\n")
+        def floatTagsArray = []
+        for (element in tagsArray) {
+            floatTagsArray.add(Float.parseFloat(element))
+        }
+        floatTagsArray.sort()
+        def currentTagVersion = "v" + floatTagsArray[floatTagsArray.size() - 1]
         println("current tag version: $currentTagVersion")
         return currentTagVersion
     }

@@ -10,7 +10,9 @@
 pluginManagement {
     repositories {
         mavenCentral()
+        // resolve plugins from mavenLocal()
         mavenLocal()
+        gradlePluginPortal()
     }
 }
 

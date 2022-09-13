@@ -16,9 +16,12 @@ plugins {
     // Plugin for publishing a project to a repository
     id 'maven-publish'
 
-    id 'com.gmail.arthurstrokov.plugin.greeting' version '1.0'
+    // Get plugin from mavenLocal()
+    id 'com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin' version '1.0'
 }
-version "1.0"
+
+version '1.0'
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
@@ -33,7 +36,7 @@ gradlePlugin {
     // Define the plugin
     plugins {
         greeting {
-            id = 'com.gmail.arthurstrokov.plugin.greeting'
+            id = 'com.gmail.arthurstrokov.plugin.testGradleGitReleasePlugin'
             implementationClass = 'com.gmail.arthurstrokov.plugin.TestGradleGitReleasePluginPlugin'
         }
     }
