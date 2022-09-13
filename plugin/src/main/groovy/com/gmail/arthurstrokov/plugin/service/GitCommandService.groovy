@@ -23,7 +23,7 @@ class GitCommandService {
         }
     }
 
-    static currentBranch() {
+    static checkCurrentBranch() {
         return ("git branch --show-current").execute().text
     }
 
