@@ -9,13 +9,13 @@ class CheckGitStatusTask extends DefaultTask {
 
     @TaskAction
     def checkGitStatus() {
-        def gitStatusResult = GitCommandService.checkGitStatus()
-        if (gitStatusResult.empty) {
+        def gitStatus = GitCommandService.checkGitStatus()
+        if (gitStatus.empty) {
             throw new GradleScriptException("Link to git does not exists", null)
-        } else if (gitStatusResult.contains("new file") || gitStatusResult.contains("modified")) {
+        } else if (gitStatus.contains("new file") || gitStatus.contains("modified")) {
             throw new GradleScriptException("Uncommitted changes was found", null)
         } else {
-            logger.info(gitStatusResult)
+            println gitStatus
         }
     }
 }
