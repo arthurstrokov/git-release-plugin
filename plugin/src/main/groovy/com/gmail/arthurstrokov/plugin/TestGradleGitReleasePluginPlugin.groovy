@@ -51,6 +51,5 @@ class TestGradleGitReleasePluginPlugin implements Plugin<Project> {
         project.tasks.register("setPluginMajorBranch", PluginBranchTask) {
             setGroup("git tasks")
         }
-
     }
 }
