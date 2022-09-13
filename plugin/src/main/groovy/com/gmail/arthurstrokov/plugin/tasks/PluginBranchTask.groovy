@@ -13,9 +13,9 @@ class PluginBranchTask extends DefaultTask {
         print(branches)
         def majorBranch = GitCommandService.setPluginMajorBranch()
         if (majorBranch.empty) {
-            MajorBranch.setMajorBranch("master")
+            MajorBranch.majorBranch("master")
         } else {
-            MajorBranch.setMajorBranch(majorBranch)
+            MajorBranch.majorBranch(majorBranch)
         }
         return majorBranch
     }

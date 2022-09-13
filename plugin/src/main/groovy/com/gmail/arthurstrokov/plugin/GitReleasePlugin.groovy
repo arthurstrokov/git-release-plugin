@@ -35,7 +35,7 @@ class GitReleasePlugin implements Plugin<Project> {
         project.tasks.register("getPluginMajorBranch") {
             setGroup("git release plugin")
             dependsOn("checkGitStatus")
-            println "Major plugin branch: " + MajorBranch.getMajorBranch()
+            println "Major plugin branch: " + MajorBranch.majorBranch()
             setDescription("Show major branch name. Default 'master'")
         }
 
@@ -60,7 +60,7 @@ class GitReleasePlugin implements Plugin<Project> {
         project.tasks.register("updateReleaseTag") {
             setGroup("git release plugin")
             def currentBrunch = GitCommandService.checkCurrentBranch()
-            if (currentBrunch.contains(MajorBranch.getMajorBranch())) {
+            if (currentBrunch.contains(MajorBranch.majorBranch())) {
                 dependsOn("updateMajorReleaseTag")
             } else {
                 dependsOn("updateMinorReleaseTag")

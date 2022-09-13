@@ -12,11 +12,11 @@ class GitCommandService {
         return ("git status").execute().text
     }
 
-    static getGitTags() {
+    static gitTags() {
         return ("git tag -l").execute().text
     }
 
-    static createGitTag(String version) {
+    static gitTagCreate(String version) {
         def result = ("git tag -a $version -m \"Created\"").execute().text
         if (!result.empty) {
             throw new GradleScriptException("Tag was not created", null)
