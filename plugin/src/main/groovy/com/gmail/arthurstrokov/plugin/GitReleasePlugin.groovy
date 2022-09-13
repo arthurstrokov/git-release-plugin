@@ -59,12 +59,5 @@ class GitReleasePlugin implements Plugin<Project> {
                 dependsOn("updateMinorReleaseTag")
             }
         }
-
-        project.tasks.register("getProperties") {
-            setGroup("git release plugin")
-            dependsOn("checkGitCommitLogStatus")
-
-            println 'major-branch is ' + System.getProperty( 'applicationName' )
-        }
     }
 }

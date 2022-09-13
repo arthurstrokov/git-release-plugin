@@ -45,17 +45,4 @@ class GitCommandService {
     static lastAnnotatedGitTag() {
         return ("git describe --abbrev=0").execute().text
     }
-
-
-    def getProperties() {
-        Properties properties = new Properties()
-        File propertiesFile = new File('gradle.properties')
-        propertiesFile.withInputStream {
-            properties.load(it)
-        }
-
-        def runtimeString = 'a'
-        assert properties."$runtimeString" == '1'
-        assert properties.b == '2'
-    }
 }

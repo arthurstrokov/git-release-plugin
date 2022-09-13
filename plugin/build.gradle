@@ -84,10 +84,3 @@ tasks.named('test') {
     // Use JUnit Jupiter for unit tests.
     useJUnitPlatform()
 }
-
-task printProps {
-    doFirst {
-        println applicationName
-        println projectName
-    }
-}
