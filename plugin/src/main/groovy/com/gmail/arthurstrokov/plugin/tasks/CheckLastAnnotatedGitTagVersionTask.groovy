@@ -12,14 +12,12 @@ class CheckLastAnnotatedGitTagVersionTask extends DefaultTask {
         def gitTags = GitCommandService.getGitTags()
         if (gitTags.empty) {
             throw new GradleScriptException("Tag list is empty. Create tag first. Example: 'v0.0'", null)
+        }
+        def lastAnnotatedGitTagVersion = GitCommandService.lastAnnotatedGitTag()
+        if (lastAnnotatedGitTagVersion.contains("fatal")) {
+            println "No annotated tags"
         } else {
-            def lastAnnotatedGitTagVersion = GitCommandService.lastAnnotatedGitTag()
-            println lastAnnotatedGitTagVersion
-            if (lastAnnotatedGitTagVersion.contains("fatal: No annotated tags can describe")) {
-                println "No annotated tags"
-            } else {
-                println "last annotated tag:" + lastAnnotatedGitTagVersion
-            }
+            println "Last annotated tag:" + lastAnnotatedGitTagVersion
         }
     }
 }
