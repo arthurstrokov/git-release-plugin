@@ -11,9 +11,9 @@ class GitVersionTask extends DefaultTask {
     def gitVersion() {
         def gitVersion = GitCommandService.gitVersion()
         if (gitVersion.contains("git")) {
-            logger.info(gitVersion)
+            println gitVersion
         } else {
-            throw new GradleScriptException("No git available", null)
+            throw new GradleScriptException("No git available. Install Git first.", null)
         }
     }
 }

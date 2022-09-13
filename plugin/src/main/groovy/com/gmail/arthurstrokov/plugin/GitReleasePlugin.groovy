@@ -10,10 +10,9 @@ class GitReleasePlugin implements Plugin<Project> {
 
     void apply(Project project) {
         // Register a task
-        project.tasks.register("gitReleasePlugin") {
-            setGroup("git release plugin")
+        project.tasks.register("gitReleasePluginHello") {
             doLast {
-                println("Hello from plugin")
+                println("Hello from git release plugin")
             }
         }
         project.tasks.register("checkGitVersion", GitVersionTask) {
