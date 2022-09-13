@@ -15,9 +15,4 @@ class GitTagVersionService {
         def currentTagVersion = "v" + sortedTagsArray.last()
         return currentTagVersion
     }
-
-    private static List<String> sortTags(String[] strings) {
-        Arrays.sort(strings, new VersionNumberComparator())
-        return Arrays.asList(strings)
-    }
 }
