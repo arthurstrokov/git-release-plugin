@@ -29,7 +29,7 @@ class GitReleasePluginFunctionalTest extends Specification {
         settingsFile << ""
         buildFile << """
 plugins {
-    id('com.gmail.arthurstrokov.plugin.gitReleasePlugin')
+    id('io.github.arthurstrokov.gitReleasePlugin')
 }
 """
         when:

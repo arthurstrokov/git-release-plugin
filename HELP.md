@@ -10,10 +10,6 @@ Delete All remote tags.
 
     git push origin --delete $(git tag -l) # Pushing once should be faster than multiple times
 
-Delete All local tags.
-
-    git tag -d $(git tag -l)
-
 When developing a plugin, keep in mind that:
 
     Git may not be installed on the system
