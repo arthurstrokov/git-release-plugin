@@ -11,7 +11,7 @@ class GitReleasePluginTest extends Specification {
         given:
         def project = ProjectBuilder.builder().build()
         when:
-        project.plugins.apply("com.gmail.arthurstrokov.plugin.gitReleasePlugin")
+        project.plugins.apply("io.github.arthurstrokov.gitReleasePlugin")
         then:
         project.tasks.findByName("gitReleasePlugin") != null
     }
