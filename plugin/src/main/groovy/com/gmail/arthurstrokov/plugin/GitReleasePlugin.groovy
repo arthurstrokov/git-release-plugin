@@ -81,7 +81,9 @@ class GitReleasePlugin implements Plugin<Project> {
             }
 
             doLast {
-                println System.properties['org.gradle.project.branch']
+                if (hasProperty('branch')) {
+                    println 'Doing some conditional build logic'
+                }
             }
         }
     }
