@@ -81,11 +81,7 @@ class GitReleasePlugin implements Plugin<Project> {
             }
 
             doLast {
-                if (project.hasProperty("org.gradle.project.branch")) {
-                    println("Performing release actions")
-                } else {
-                    throw new InvalidUserDataException("Cannot perform release outside of CI")
-                }
+                println project.getProperties().get("org.gradle.project.branch")
             }
         }
     }
