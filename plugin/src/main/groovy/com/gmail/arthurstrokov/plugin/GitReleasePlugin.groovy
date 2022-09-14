@@ -81,7 +81,7 @@ class GitReleasePlugin implements Plugin<Project> {
             }
 
             doLast {
-                println project.getProperties()
+                println System.properties['org.gradle.project.branch']
             }
         }
     }
