@@ -73,7 +73,7 @@ class GitReleasePlugin implements Plugin<Project> {
         project.tasks.register("release") {
             def releaseBranch = extension.getReleaseBranch().convention("master").get()
 
-            setGroup("release")
+            setGroup("git release plugin")
             if (GitCommandService.checkCurrentBranch().trim() == releaseBranch) {
                 dependsOn('updateMajorReleaseTag')
             } else {
@@ -81,7 +81,7 @@ class GitReleasePlugin implements Plugin<Project> {
             }
 
             doLast {
-                if (project.hasProperty("branch")) {
+                if (project.hasProperty("org.gradle.project.branch")) {
                     println("Performing release actions")
                 } else {
                     throw new InvalidUserDataException("Cannot perform release outside of CI")
