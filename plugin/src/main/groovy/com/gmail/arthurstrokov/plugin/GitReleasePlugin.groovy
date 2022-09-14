@@ -4,7 +4,6 @@ import com.gmail.arthurstrokov.plugin.configuration.ReleasePluginExtension
 import com.gmail.arthurstrokov.plugin.model.MajorBranch
 import com.gmail.arthurstrokov.plugin.service.GitCommandService
 import com.gmail.arthurstrokov.plugin.tasks.*
-import org.gradle.api.InvalidUserDataException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -12,7 +11,7 @@ class GitReleasePlugin implements Plugin<Project> {
 
     void apply(Project project) {
         // Register a task
-        project.tasks.register("gitReleasePluginHello") {
+        project.tasks.register("gitReleasePlugin") {
             doLast {
                 println("Hello from git release plugin")
             }
@@ -72,18 +71,11 @@ class GitReleasePlugin implements Plugin<Project> {
         ReleasePluginExtension extension = project.getExtensions().create("releaseConfig", ReleasePluginExtension)
         project.tasks.register("release") {
             def releaseBranch = extension.getReleaseBranch().convention("master").get()
-
             setGroup("git release plugin")
             if (GitCommandService.checkCurrentBranch().trim() == releaseBranch) {
                 dependsOn('updateMajorReleaseTag')
             } else {
                 dependsOn('updateMinorReleaseTag')
-            }
-
-            doLast {
-                if (hasProperty('branch')) {
-                    println 'Doing some conditional build logic'
-                }
             }
         }
     }

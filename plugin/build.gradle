@@ -87,6 +87,4 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-//releaseConfig {
-//    releaseBranch = 'master'
-//}
+
