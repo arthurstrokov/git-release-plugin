@@ -1,5 +1,6 @@
 package com.gmail.arthurstrokov.plugin
 
+import com.gmail.arthurstrokov.plugin.configuration.ReleasePluginExtension
 import com.gmail.arthurstrokov.plugin.model.MajorBranch
 import com.gmail.arthurstrokov.plugin.service.GitCommandService
 import com.gmail.arthurstrokov.plugin.tasks.*
@@ -64,6 +65,17 @@ class GitReleasePlugin implements Plugin<Project> {
                 dependsOn("updateMajorReleaseTag")
             } else {
                 dependsOn("updateMinorReleaseTag")
+            }
+        }
+
+        ReleasePluginExtension extension = project.getExtensions().create("releaseConfig", ReleasePluginExtension)
+        project.tasks.register("gitRelease") {
+            def releaseBranch = extension.getReleaseBranch().convention("master").get()
+            setGroup("git release plugin") // TODO This is meaningless task if there is no access to the (releaseConfig) code in build.gradle
+            if (GitCommandService.checkCurrentBranch().trim() == releaseBranch) {
+                dependsOn('updateMajorReleaseTag')
+            } else {
+                dependsOn('updateMinorReleaseTag')
             }
         }
     }
