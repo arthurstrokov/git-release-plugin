@@ -11,7 +11,7 @@ class GitReleasePlugin implements Plugin<Project> {
 
     void apply(Project project) {
         // Register a task
-        project.tasks.register("gitReleasePlugin") {
+        project.tasks.register("gitReleasePluginHello") {
             doLast {
                 println("Hello from git release plugin")
             }
@@ -60,7 +60,7 @@ class GitReleasePlugin implements Plugin<Project> {
 
         project.tasks.register("updateReleaseTag") {
             setGroup("git release plugin")
-            def currentBrunch = GitCommandService.checkCurrentBranch()
+            def currentBrunch = GitCommandService.currentBranch()
             if (currentBrunch.contains(MajorBranch.majorBranch())) {
                 dependsOn("updateMajorReleaseTag")
             } else {
