@@ -88,3 +88,4 @@ tasks.named('test') {
 releaseConfig { // TODO see gitRelease task in GitReleasePlugin class
     releaseBranch = 'master'
 }
+
