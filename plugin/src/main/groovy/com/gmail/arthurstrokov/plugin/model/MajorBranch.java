@@ -1,10 +1,10 @@
 package com.gmail.arthurstrokov.plugin.model;
 
 public class MajorBranch {
-    private static String branch = "master";
-
     private MajorBranch() {
     }
+
+    private static String branch = "master";
 
     public static String majorBranch() {
         return branch;
