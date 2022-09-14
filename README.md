@@ -2,7 +2,7 @@
 
 ## Using the plugins DSL
     plugins {
-    id "io.github.arthurstrokov.gitReleasePlugin" version "1.0"
+    id "io.github.arthurstrokov.gitReleasePlugin" version "1.2"
     }
 
 https://plugins.gradle.org/plugin/io.github.arthurstrokov.gitReleasePlugin

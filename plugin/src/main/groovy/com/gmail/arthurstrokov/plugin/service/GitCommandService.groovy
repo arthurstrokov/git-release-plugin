@@ -1,7 +1,5 @@
 package com.gmail.arthurstrokov.plugin.service
 
-import org.gradle.api.GradleScriptException
-
 class GitCommandService {
 
     static checkGitVersion() {
@@ -18,9 +16,12 @@ class GitCommandService {
 
     static gitTagCreate(String version) {
         def result = ("git tag -a $version -m \"Created\"").execute().text
-        if (!result.empty) {
-            throw new GradleScriptException("Tag was not created", null)
-        }
+        return result
+    }
+
+    static gitTagCreate(String version, String commitMessage) {
+        def result = ("git tag -a $version -m $commitMessage").execute().text
+        return result
     }
 
     static checkCurrentBranch() {
