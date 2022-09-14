@@ -1,8 +1,10 @@
 package com.gmail.arthurstrokov.plugin
 
+import com.gmail.arthurstrokov.plugin.configuration.ReleasePluginExtension
 import com.gmail.arthurstrokov.plugin.model.MajorBranch
 import com.gmail.arthurstrokov.plugin.service.GitCommandService
 import com.gmail.arthurstrokov.plugin.tasks.*
+import org.gradle.api.InvalidUserDataException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -64,6 +66,26 @@ class GitReleasePlugin implements Plugin<Project> {
                 dependsOn("updateMajorReleaseTag")
             } else {
                 dependsOn("updateMinorReleaseTag")
+            }
+        }
+
+        ReleasePluginExtension extension = project.getExtensions().create("releaseConfig", ReleasePluginExtension)
+        project.tasks.register("release") {
+            def releaseBranch = extension.getReleaseBranch().convention("master").get()
+
+            setGroup("release")
+            if (GitCommandService.checkCurrentBranch().trim() == releaseBranch) {
+                dependsOn('updateMajorReleaseTag')
+            } else {
+                dependsOn('updateMinorReleaseTag')
+            }
+
+            doLast {
+                if (project.hasProperty("branch")) {
+                    println("Performing release actions")
+                } else {
+                    throw new InvalidUserDataException("Cannot perform release outside of CI")
+                }
             }
         }
     }
