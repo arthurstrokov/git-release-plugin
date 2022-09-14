@@ -60,7 +60,7 @@ class GitReleasePlugin implements Plugin<Project> {
 
         project.tasks.register("updateReleaseTag") {
             setGroup("git release plugin")
-            def currentBrunch = GitCommandService.currentBranch()
+            def currentBrunch = GitCommandService.checkCurrentBranch()
             if (currentBrunch.contains(MajorBranch.majorBranch())) {
                 dependsOn("updateMajorReleaseTag")
             } else {
