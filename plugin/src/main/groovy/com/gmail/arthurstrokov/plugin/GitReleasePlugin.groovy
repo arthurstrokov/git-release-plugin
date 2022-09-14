@@ -71,7 +71,7 @@ class GitReleasePlugin implements Plugin<Project> {
         ReleasePluginExtension extension = project.getExtensions().create("releaseConfig", ReleasePluginExtension)
         project.tasks.register("gitRelease") {
             def releaseBranch = extension.getReleaseBranch().convention("master").get()
-//            setGroup("git release plugin") // TODO This is meaningless task if there is no access to the (releaseConfig) code in build.gradle
+            setGroup("git release plugin") // TODO This is meaningless task if there is no access to the (releaseConfig) code in build.gradle
             if (GitCommandService.checkCurrentBranch().trim() == releaseBranch) {
                 dependsOn('updateMajorReleaseTag')
             } else {
